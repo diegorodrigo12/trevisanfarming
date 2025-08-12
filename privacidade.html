@@ -17,123 +17,79 @@
     --max-width: 1100px;
   }
 
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
 
-  body {
+  body{
     font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
+    margin:0;
+    background-color:var(--bg-color);
+    color:var(--text-color);
+    line-height:1.6;
   }
 
-  a {
-    color: var(--secondary-color);
-    text-decoration: none;
+  a { color:var(--secondary-color); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+
+  header{
+    background:white;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    padding:15px 30px;
+    position:sticky;
+    top:0;
+    z-index:1000;
   }
 
-  a:hover {
-    text-decoration: underline;
+  .container{ max-width:var(--max-width); margin:0 auto; }
+
+  nav{ display:flex; justify-content:space-between; align-items:center; }
+
+  .logo{ font-weight:700; font-size:1.5rem; color:var(--primary-color); }
+
+  .menu{ display:flex; gap:25px; font-weight:600; }
+
+  .btn-primary{
+    background-color:var(--secondary-color);
+    color:white;
+    padding:10px 20px;
+    border-radius:var(--radius);
+    font-weight:600;
+  }
+  .btn-primary:hover{ background-color:#1f7a36; }
+
+  .content-container{
+    max-width:900px;
+    background:white;
+    margin:40px auto 60px auto;
+    padding:30px 40px;
+    border-radius:var(--radius);
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
   }
 
-  header {
-    background: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    padding: 15px 30px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
+  main{ padding:40px 20px; max-width:var(--max-width); margin:0 auto; }
 
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-  }
+  h1,h2{ color:var(--primary-color); font-weight:700; margin-top:0; }
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  h3{ color:var(--primary-color); margin-bottom:8px; }
 
-  .logo {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-  }
+  p{ margin-bottom:1rem; }
 
-  .menu {
-    display: flex;
-    gap: 25px;
-    font-weight: 600;
-  }
+  ul{ margin-left:20px; margin-bottom:1rem; }
 
-  .btn-primary {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 10px 20px;
-    border-radius: var(--radius);
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-  }
-  .btn-primary:hover {
-    background-color: #1f7a36;
-  }
+  .muted{ color:var(--gray); font-size:0.95rem; }
 
-  .content-container {
-  max-width: 900px;
-  background: white;
-  margin: 40px auto 60px auto;
-  padding: 30px 40px;
-  border-radius: var(--radius);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
+  footer{
+    background:#222;
+    color:#ccc;
+    padding:20px 30px;
+    text-align:center;
+  }
+  footer a{ color:var(--secondary-color); margin:0 8px; font-weight:600; }
+  footer a:hover{ text-decoration:underline; }
 
-  main {
-    padding: 40px 20px;
-    max-width: var(--max-width);
-    margin: 0 auto;
-  }
-
-  h1, h2 {
-    color: var(--primary-color);
-    font-weight: 700;
-  }
-
-  p {
-    margin-bottom: 1.2rem;
-  }
-
-  ul {
-    margin-left: 20px;
-    margin-bottom: 1.2rem;
-  }
-
-  footer {
-    background: #222;
-    color: #ccc;
-    padding: 20px 30px;
-    text-align: center;
-  }
-  footer a {
-    color: var(--secondary-color);
-    margin: 0 8px;
-    font-weight: 600;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-
-  @media(max-width: 720px) {
-    main {
-      padding: 20px 15px;
-    }
-    nav {
-      flex-direction: column;
-      gap: 15px;
-    }
+  @media(max-width:720px){
+    main{ padding:20px 15px; }
+    nav{ flex-direction:column; gap:15px; }
+    .content-container{ padding:20px; margin:20px; }
   }
 </style>
 </head>
@@ -156,53 +112,98 @@
 <main>
   <div class="content-container">
     <h1>Política de Privacidade</h1>
-    <p><strong>Última atualização:</strong> 12 de agosto de 2025</p>
+    <p class="muted"><strong>Última atualização:</strong> 12 de agosto de 2025</p>
 
-    <p>A Trevisan Farming valoriza a sua privacidade e está comprometida em proteger seus dados pessoais. Esta Política de Privacidade explica como coletamos, usamos, armazenamos e protegemos as informações dos visitantes e clientes do nosso site.</p>
+    <p>A Trevisan Farming valoriza a sua privacidade e se compromete a proteger os seus dados pessoais. Esta Política de Privacidade explica quais informações coletamos, por que as coletamos, como são usadas, com quem são compartilhadas e quais direitos você possui, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
 
-    <h2>1. Informações que coletamos</h2>
-    <p>Coletamos os seguintes tipos de informações:</p>
+    <h2>1. Quem é o responsável</h2>
+    <p><strong>Trevisan Farming</strong> — proprietária da loja online Trevisan Farming, disponível em nossa página e em loja hospedada na HotPrinti (<a href="https://hotprinti.com.br/trfarming" target="_blank">https://hotprinti.com.br/trfarming</a>).</p>
+
+    <h2>2. Quais dados coletamos</h2>
+    <p>Coletamos dados para viabilizar compras, melhorar a experiência e cumprir obrigações legais. Entre eles:</p>
     <ul>
-      <li>Dados fornecidos diretamente por você ao criar uma conta, fazer pedidos ou entrar em contato (nome, e-mail, endereço, telefone, etc.);</li>
-      <li>Dados técnicos automaticamente coletados ao acessar o site, como endereço IP, tipo de navegador, páginas visitadas e tempo de acesso;</li>
-      <li>Informações coletadas por meio de cookies e tecnologias similares para melhorar sua experiência.</li>
+      <li><strong>Dados de identificação:</strong> nome, CPF (quando necessário), data de nascimento;</li>
+      <li><strong>Dados de contato:</strong> e-mail, telefone, endereço de entrega e faturamento;</li>
+      <li><strong>Dados de pagamento:</strong> informações necessárias para processar pagamentos (fornecidas a processadores de pagamento);</li>
+      <li><strong>Dados de uso:</strong> endereço IP, páginas visitadas, dispositivo e comportamento no site;</li>
+      <li><strong>Dados de personalização:</strong> imagens, logos ou arquivos enviados por você para criação de produtos personalizados;</li>
+      <li><strong>Dados de suporte:</strong> registros de atendimento e comunicações (e-mail, chat, telefone).</li>
     </ul>
 
-    <h2>2. Uso das informações</h2>
-    <p>Utilizamos suas informações para:</p>
+    <h2>3. Base legal para o tratamento</h2>
+    <p>Tratamos seus dados com base nas hipóteses previstas na LGPD, entre outras:</p>
     <ul>
-      <li>Processar pedidos e enviar produtos adquiridos;</li>
-      <li>Responder suas dúvidas e solicitações;</li>
-      <li>Melhorar nosso site e personalizar sua experiência;</li>
-      <li>Enviar comunicações comerciais e promocionais, caso você tenha autorizado;</li>
-      <li>Cumprir obrigações legais e proteger nossos direitos.</li>
+      <li>Execução de contrato ou de procedimentos preliminares relacionados a contrato (art. 7º, V);</li>
+      <li>Cumprimento de obrigação legal ou regulatória (art. 7º, II);</li>
+      <li>Atendimento ao legítimo interesse da Trevisan Farming, quando aplicável (art. 7º, IX);</li>
+      <li>Consentimento do titular, quando necessário para finalidades específicas (art. 7º, I).</li>
     </ul>
 
-    <h2>3. Compartilhamento de dados</h2>
-    <p>Não vendemos, alugamos ou compartilhamos seus dados pessoais com terceiros para fins comerciais. Podemos compartilhar informações com fornecedores de serviços que nos auxiliam na operação do site e entrega dos produtos, sempre com compromisso de confidencialidade.</p>
-
-    <h2>4. Segurança dos dados</h2>
-    <p>Adotamos medidas técnicas e organizacionais para proteger seus dados contra acessos não autorizados, alterações, divulgação ou destruição.</p>
-
-    <h2>5. Seus direitos</h2>
-    <p>Você tem o direito de:</p>
+    <h2>4. Finalidades do uso</h2>
+    <p>Utilizamos seus dados para:</p>
     <ul>
-      <li>Acessar, corrigir ou excluir seus dados pessoais;</li>
-      <li>Solicitar a portabilidade dos dados;</li>
-      <li>Revogar seu consentimento para o uso dos seus dados a qualquer momento;</li>
-      <li>Entrar em contato conosco para esclarecer dúvidas ou exercer seus direitos.</li>
+      <li>Processar pedidos, pagamentos e entregas;</li>
+      <li>Produção e personalização de produtos (via HotPrinti);</li>
+      <li>Comunicar sobre o pedido, status de entrega e suporte ao cliente;</li>
+      <li>Enviar informações comerciais e promoções, quando houver consentimento;</li>
+      <li>Melhorar a navegação do site, realizar análises e prevenção de fraudes;</li>
+      <li>Cumprir obrigações legais e fiscais.</li>
     </ul>
 
-    <h2>6. Cookies</h2>
-    <p>Nosso site utiliza cookies para melhorar a navegação. Você pode configurar seu navegador para bloquear ou alertar sobre cookies, mas algumas funcionalidades podem ser afetadas.</p>
+    <h2>5. Compartilhamento de dados</h2>
+    <p>Para viabilizar a produção, pagamento e entrega, seus dados podem ser compartilhados com:</p>
+    <ul>
+      <li><strong>HotPrinti</strong> (parceiro de produção e logística) — para confecção e envio dos produtos;</li>
+      <li>Operadoras de pagamento e instituições financeiras — para processamento de pagamentos;</li>
+      <li>Transportadoras e serviços de envio — para entrega dos pedidos;</li>
+      <li>Fornecedores de TI e serviços de hospedagem — para manutenção técnica do site;</li>
+      <li>Autoridades competentes, quando exigido por lei.</li>
+    </ul>
+    <p>Todos os parceiros são obrigados a proteger seus dados e a usá-los somente para as finalidades contratadas.</p>
 
-    <h2>7. Contato</h2>
-    <p>Em caso de dúvidas sobre esta Política de Privacidade, entre em contato:</p>
+    <h2>6. Cookies e tecnologias similares</h2>
+    <p>Utilizamos cookies para personalizar sua experiência, manter sessões de usuário e coletar informações de navegação. Você pode optar por desabilitar cookies nas configurações do navegador, porém algumas funcionalidades do site podem ser afetadas.</p>
+
+    <h2>7. Retenção dos dados</h2>
+    <p>Manteremos seus dados pelo tempo necessário para cumprir as finalidades descritas, obrigações legais e fiscais ou enquanto existir interesse legítimo da Trevisan Farming. Após esse período, seus dados serão eliminados ou anonimizados quando possível.</p>
+
+    <h2>8. Segurança</h2>
+    <p>Adotamos medidas técnicas e administrativas razoáveis para proteger seus dados contra acesso não autorizado, divulgação, alteração ou destruição. Apesar disso, nenhum sistema é 100% seguro — recomendamos cuidado com o compartilhamento de informações sensíveis.</p>
+
+    <h2>9. Transferência internacional</h2>
+    <p>Se houver necessidade de transferência de seus dados para parceiros localizados fora do Brasil, garantiremos que sejam adotadas salvaguardas adequadas para proteção compatível com a LGPD.</p>
+
+    <h2>10. Direitos do titular</h2>
+    <p>Você, enquanto titular dos dados, tem os seguintes direitos, conforme a LGPD:</p>
+    <ul>
+      <li>Confirmação da existência de tratamento;</li>
+      <li>Acesso aos dados;</li>
+      <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+      <li>Anonimização, bloqueio ou eliminação de dados desnecessários;</li>
+      <li>Portabilidade dos dados a outro fornecedor, quando aplicável;</li>
+      <li>Eliminação dos dados tratados com consentimento (salvo obrigações legais);</li>
+      <li>Revogação do consentimento (quando aplicável);</li>
+      <li>Informação sobre compartilhamento e finalidade do tratamento.</li>
+    </ul>
+    <p>Para exercer seus direitos, entre em contato pelo e-mail abaixo. Responderemos conforme os prazos legais.</p>
+
+    <h2>11. Dados de menores</h2>
+    <p>Nosso site não é destinado ao público infantil. Não coletamos conscientemente dados pessoais de crianças sem consentimento dos pais ou responsáveis. Se identificar que fornecimento foi feito por menor sem autorização, entre em contato para que possamos remover as informações.</p>
+
+    <h2>12. Atualizações desta Política</h2>
+    <p>Podemos atualizar esta Política de Privacidade a qualquer momento. A versão com data de atualização estará disponível nesta página. Recomendamos verificar periodicamente.</p>
+
+    <h2>13. Contato</h2>
+    <p>Para dúvidas, solicitações de acesso, exercícios de direitos ou reclamações sobre o tratamento de dados, entre em contato:</p>
     <address>
       <strong>Trevisan Farming</strong><br />
       E-mail: <a href="mailto:contato@trevisanfarming.com.br">contato@trevisanfarming.com.br</a><br />
-      Telefone: (XX) XXXX-XXXX
+      Telefone: (XX) XXXX-XXXX<br />
+      Loja na HotPrinti: <a href="https://hotprinti.com.br/trfarming" target="_blank">https://hotprinti.com.br/trfarming</a>
     </address>
+
+    <p class="muted"><em>Observação:</em> Este documento tem caráter informativo e busca refletir práticas recomendadas. Para conformidade jurídica completa (ex.: cláusulas específicas sobre tratamento sensível, regras contratuais com parceiros ou dados especiais), recomendamos revisão final por um advogado especializado em privacidade e direito digital.</p>
+
   </div>
 </main>
 
@@ -210,8 +211,8 @@
   <div class="container">
     <p>© 2025 Trevisan Farming - Todos os direitos reservados</p>
     <p>
-      <a href="politica-privacidade.html">Política de Privacidade</a> | 
-      <a href="#">Termos de Uso</a> | 
+      <a href="politica-de-privacidade.html">Política de Privacidade</a> | 
+      <a href="termos-de-uso.html">Termos de Uso</a> | 
       <a href="#contato">Contato</a>
     </p>
   </div>
