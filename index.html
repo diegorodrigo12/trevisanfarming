@@ -236,6 +236,14 @@
     margin-bottom: 15px;
     color: var(--secondary-color);
   }
+.products-grid .product-card img {
+  width: auto;           /* largura automática */
+  max-width: 180px;      /* limite máximo de largura */
+  height: 180px;         /* altura fixa menor */
+  object-fit: contain;   /* mostrar toda a imagem sem cortar */
+  display: block;
+  margin: 0 auto 12px;   /* centraliza horizontalmente e espaço abaixo */
+}
   .btn-add {
     background-color: var(--secondary-color);
     color: white;
@@ -354,7 +362,7 @@
     <h2 class="section-title">Produtos em destaque</h2>
     <div class="products-grid">
       <article class="product-card">
-        <img src="https://images.unsplash.com/photo-1556909190-54839b1a2f3d?auto=format&fit=crop&w=600&q=80" alt="Camiseta Personalizada">
+        <img src="img/bc2ef9cc-db6a-412b-b08d-62694c2871d6.png" alt="Camiseta Personalizada">
         <div class="product-info">
           <h3>Camisetas Personalizadas</h3>
           <p>Algodão premium, impressão de alta qualidade, diversas cores e tamanhos.</p>
@@ -364,7 +372,7 @@
       </article>
 
       <article class="product-card">
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Caneca Personalizada">
+        <img src="img/e73dde7d-040c-4ac0-ba2f-d97eb3087eb9.png" alt="Caneca Personalizada">
         <div class="product-info">
           <h3>Canecas Personalizadas</h3>
           <p>Canecas de cerâmica com arte personalizada para presentear ou vender.</p>
