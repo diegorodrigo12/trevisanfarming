@@ -333,6 +333,87 @@
       margin-top: 30px;
     }
   }
+
+  /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr; /* Hero em coluna única */
+    padding: 20px 0;
+    gap: 20px;
+  }
+  .hero-image,
+  .carousel-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto; /* altura proporcional */
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 720px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .menu {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+  .products-grid {
+    grid-template-columns: 1fr; /* Cards em coluna única */
+    gap: 20px;
+  }
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr; /* Depoimentos em coluna */
+  }
+}
+
+/* Pequenos dispositivos */
+@media (max-width: 480px) {
+  header {
+    padding: 10px 15px;
+  }
+  .hero-text h1 {
+    font-size: 1.4rem;
+  }
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+  .hero-buttons a {
+    font-size: 0.9rem;
+    padding: 8px 0;
+  }
+  footer {
+    padding: 15px 10px;
+    font-size: 0.85rem;
+  }
+}
+
 </style>
 </head>
 <body>
