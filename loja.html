@@ -9,6 +9,27 @@
 </style>
 </head>
 <body>
-<iframe src="https://hotprinti.com.br/trfarming/" frameborder="0"></iframe>
+<iframe id="lojaFrame" src="https://hotprinti.com.br/trfarming/" frameborder="0"></iframe>
+
+<script>
+  const iframe = document.getElementById('lojaFrame');
+
+  // Quando o cliente clicar em qualquer link dentro do iframe,
+  // a página abrirá fora do iframe (direto no site da Hotprint)
+  iframe.addEventListener("load", () => {
+    try {
+      const links = iframe.contentDocument.querySelectorAll("a");
+      links.forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.location.href = link.href;
+        });
+      });
+    } catch (err) {
+      // Não consegue acessar conteúdo se o domínio for diferente (limite de segurança do navegador)
+      console.warn("Não é possível capturar os cliques por causa da política de segurança (cross-origin).");
+    }
+  });
+</script>
 </body>
 </html>
