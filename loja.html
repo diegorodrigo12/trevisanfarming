@@ -5,31 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trevisan Farming | Loja Oficial</title>
 <style>
-  html, body, iframe { margin:0; padding:0; width:100%; height:100%; border:none; }
+  html, body { margin:0; padding:0; width:100%; height:100%; }
+  iframe { width:100%; height:100%; border:none; }
 </style>
 </head>
 <body>
-<iframe id="lojaFrame" src="https://hotprinti.com.br/trfarming/" frameborder="0"></iframe>
-
 <script>
-  const iframe = document.getElementById('lojaFrame');
+  const paginaInicialHotprint = "https://hotprinti.com.br/trfarming/";
 
-  // Quando o cliente clicar em qualquer link dentro do iframe,
-  // a página abrirá fora do iframe (direto no site da Hotprint)
-  iframe.addEventListener("load", () => {
-    try {
-      const links = iframe.contentDocument.querySelectorAll("a");
-      links.forEach(link => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          window.location.href = link.href;
-        });
-      });
-    } catch (err) {
-      // Não consegue acessar conteúdo se o domínio for diferente (limite de segurança do navegador)
-      console.warn("Não é possível capturar os cliques por causa da política de segurança (cross-origin).");
-    }
-  });
+  // Verifica se é a primeira vez que o usuário acessa a loja
+  if (!sessionStorage.getItem("visitouLoja")) {
+    // Marca que ele já visitou
+    sessionStorage.setItem("visitouLoja", "true");
+    // Mostra o iframe
+    document.write(`<iframe src="${paginaInicialHotprint}"></iframe>`);
+  } else {
+    // Já visitou: vai direto para a Hotprint
+    window.location.href = paginaInicialHotprint;
+  }
 </script>
 </body>
 </html>
