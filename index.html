@@ -2,11 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Trevisan Farming – Moda e Produtos para o Mundo Agro</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+  /* ================== Variáveis ================== */
   :root {
     --primary-color: #004d00;
     --secondary-color: #2ea44f;
@@ -17,9 +18,8 @@
     --max-width: 1100px;
   }
 
-  * {
-    box-sizing: border-box;
-  }
+  /* ================== Reset / Base ================== */
+  * { box-sizing: border-box; }
 
   body {
     font-family: 'Poppins', sans-serif;
@@ -27,32 +27,16 @@
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    scroll-behavior: smooth;
   }
 
-  .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* espaço entre logo e texto */
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--primary-color);
-}
-
-.logo-img {
-  width: 40px; /* tamanho da logo, ajuste se quiser */
-  height: auto;
-  object-fit: contain;
-}
-
-  a {
-    color: var(--secondary-color);
-    text-decoration: none;
+  a { 
+    color: var(--secondary-color); 
+    text-decoration: none; 
   }
+  a:hover { text-decoration: underline; }
 
-  a:hover {
-    text-decoration: underline;
-  }
-
+  /* ================== Header ================== */
   header {
     background: white;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -65,39 +49,35 @@
   .container {
     max-width: var(--max-width);
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
   }
 
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 
-  .social-icons {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.social-icons a svg {
-  transition: transform 0.3s ease;
-}
-
-.social-icons a:hover svg {
-  transform: scale(1.2);
-}
-
-
   .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-weight: 700;
     font-size: 1.5rem;
     color: var(--primary-color);
   }
 
+  .logo-img { width: 40px; height: auto; object-fit: contain; }
+
   .menu {
     display: flex;
     gap: 25px;
     font-weight: 600;
+    align-items: center;
   }
 
   .btn-primary {
@@ -108,39 +88,42 @@
     font-weight: 600;
     transition: background-color 0.3s ease;
   }
-  .btn-primary:hover {
-    background-color: #1f7a36;
-  }
+  .btn-primary:hover { background-color: #1f7a36; }
 
-  main {
-    padding: 40px 20px;
-  }
-
-  /* Hero */
-  .hero {
+  .social-icons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
+    gap: 15px;
     align-items: center;
-    margin-bottom: 60px;
   }
-  .hero-text {
-    flex: 1 1 400px;
+  .social-icons a svg { transition: transform 0.3s ease; }
+  .social-icons a:hover svg { transform: scale(1.2); }
+
+  /* ================== Main ================== */
+  main { padding: 40px 20px; }
+
+  /* -------- Hero -------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 28px;
+    align-items: center;
+    padding: 36px 0;
   }
+
   .hero-text h1 {
     font-size: 2.8rem;
     margin-bottom: 16px;
     color: var(--primary-color);
   }
+
   .hero-text p {
     font-size: 1.2rem;
     color: var(--gray);
     margin-bottom: 24px;
   }
-  .hero-buttons {
-    display: flex;
-    gap: 20px;
-  }
+
+  .hero-buttons { display: flex; gap: 20px; }
+
   .btn-secondary {
     background-color: transparent;
     border: 2px solid var(--secondary-color);
@@ -155,80 +138,61 @@
     background-color: var(--secondary-color);
     color: white;
   }
-  .hero {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 28px;
-  align-items: center;
-  padding: 36px 0;
-}
 
-.hero-image {
-  width: 420px;
-  height: 520px; /* mesma altura que antes */
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  position: relative;
-}
-
-.carousel-image {
-  width: 420px;
-  height: 520px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  display: none;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.carousel-image.active {
-  display: block;
-  opacity: 1;
-}
-
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.4);
-  border: none;
-  color: white;
-  font-size: 2.2rem;
-  padding: 5px 12px;
-  cursor: pointer;
-  border-radius: 50%;
-  user-select: none;
-  transition: background-color 0.3s ease;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(0,0,0,0.7);
-}
-
-.carousel-btn.prev {
-  left: 12px;
-}
-
-.carousel-btn.next {
-  right: 12px;
-}
-
-  /* Products */
-  .products-section {
-    margin-bottom: 60px;
+  .hero-image {
+    width: 420px;
+    height: 520px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    position: relative;
   }
+
+  .carousel-image {
+    width: 420px;
+    height: 520px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .carousel-image.active { display: block; opacity: 1; }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.4);
+    border: none;
+    color: white;
+    font-size: 2.2rem;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  .carousel-btn:hover { background-color: rgba(0,0,0,0.7); }
+  .carousel-btn.prev { left: 12px; }
+  .carousel-btn.next { right: 12px; }
+
+  /* ================== Products ================== */
+  .products-section { margin-bottom: 60px; }
+
   .section-title {
     font-size: 2rem;
     margin-bottom: 24px;
     font-weight: 700;
     color: var(--primary-color);
   }
+
   .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    align-items: start;
   }
+
   .product-card {
     background: white;
     border-radius: var(--radius);
@@ -236,44 +200,25 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.6s ease;
+    opacity: 0;
   }
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
+  .product-card.visible { opacity: 1; }
+
   .product-card img {
-    width: 100%;
+    width: auto;
+    max-width: 180px;
     height: 180px;
-    object-fit: cover;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 12px;
   }
-  .product-info {
-    padding: 15px 20px;
-    flex-grow: 1;
-  }
-  .product-info h3 {
-    margin: 0 0 10px;
-    font-size: 1.1rem;
-    color: var(--primary-color);
-  }
-  .product-info p {
-    font-size: 0.9rem;
-    color: var(--gray);
-    margin-bottom: 15px;
-  }
-  .product-price {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: var(--secondary-color);
-  }
-.products-grid .product-card img {
-  width: auto;           /* largura automática */
-  max-width: 180px;      /* limite máximo de largura */
-  height: 180px;         /* altura fixa menor */
-  object-fit: contain;   /* mostrar toda a imagem sem cortar */
-  display: block;
-  margin: 0 auto 12px;   /* centraliza horizontalmente e espaço abaixo */
-}
+
+  .product-info { padding: 15px 20px; flex-grow: 1; }
+  .product-info h3 { margin: 0 0 10px; font-size: 1.1rem; color: var(--primary-color); }
+  .product-info p { font-size: 0.9rem; color: var(--gray); margin-bottom: 15px; }
+  .product-price { font-weight: 700; font-size: 1.1rem; margin-bottom: 15px; color: var(--secondary-color); }
+
   .btn-add {
     background-color: var(--secondary-color);
     color: white;
@@ -285,45 +230,49 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  .btn-add:hover {
-    background-color: #1f7a36;
-  }
+  .btn-add:hover { background-color: #1f7a36; }
 
-  /* Testimonials */
+  /* ================== Testimonials ================== */
   .testimonials-section {
     background-color: var(--primary-color);
     color: white;
     padding: 40px 20px;
     border-radius: var(--radius);
     margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
   }
+
   .testimonials-section h2 {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 30px;
     text-align: center;
   }
+
   .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    max-width: var(--max-width);
+    width: 100%;
+    overflow: hidden;
   }
+
   .testimonial-card {
     background-color: #1f3d1f;
     padding: 25px 20px;
     border-radius: var(--radius);
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.6s ease;
   }
-  .testimonial-text {
-    font-style: italic;
-    margin-bottom: 15px;
-  }
-  .testimonial-author {
-    font-weight: 600;
-    text-align: right;
-  }
+  .testimonial-card.visible { opacity: 1; }
 
-  /* Footer */
+  .testimonial-text { font-style: italic; margin-bottom: 15px; }
+  .testimonial-author { font-weight: 600; text-align: right; }
+
+  /* ================== Footer ================== */
   footer {
     background: #222;
     color: #ccc;
@@ -335,113 +284,72 @@
     margin: 0 8px;
     font-weight: 600;
   }
-  footer a:hover {
-    text-decoration: underline;
+  footer a:hover { text-decoration: underline; }
+
+  /* ================== Floating Buttons ================== */
+  .btn-floating {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .btn-floating:hover { transform: scale(1.2); }
+
+  #whatsapp-btn { bottom: 80px; right: 20px; background-color: #25D366; }
+  #top-btn {
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    display: none;
   }
 
-  /* Responsive */
-  @media(max-width: 720px) {
-    .hero {
-      flex-direction: column;
-    }
-    .hero-image {
-      margin-top: 30px;
-    }
+  /* ================== Pop-up Cupom ================== */
+  #coupon-popup {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background-color: white;
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 1000;
+  }
+  #coupon-popup button {
+    margin-left: 10px;
+    border: none;
+    background: var(--secondary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: var(--radius);
+    cursor: pointer;
   }
 
-  /* Responsive adjustments */
-@media (max-width: 1024px) {
-  .hero {
-    grid-template-columns: 1fr; /* Hero em coluna única */
-    padding: 20px 0;
-    gap: 20px;
+  /* ================== Responsividade ================== */
+  @media (max-width: 900px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
   }
-  .hero-image,
-  .carousel-image {
-    width: 100%;
-    max-width: 100%;
-    height: auto; /* altura proporcional */
-  }
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-  .hero-text p {
-    font-size: 1rem;
-  }
-  .hero-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
 
-@media (max-width: 720px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-image, .carousel-image { width: 100%; height: auto; }
+    .menu { flex-wrap: wrap; }
+    .products-grid { grid-template-columns: 1fr; }
+    .testimonial-grid { grid-template-columns: 1fr; }
   }
-  .menu {
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-  }
-  .btn-primary {
-    width: 100%;
-    text-align: center;
-  }
-  .hero-text h1 {
-    font-size: 1.6rem;
-  }
-  .hero-text p {
-    font-size: 0.95rem;
-  }
-  .products-grid {
-    grid-template-columns: 1fr; /* Cards em coluna única */
-    gap: 20px;
-  }
-  .product-card img {
-    max-width: 100%;
-    height: auto;
-  }
-  .testimonials-grid {
-    grid-template-columns: 1fr; /* Depoimentos em coluna */
-  }
-}
-
-/* Pequenos dispositivos */
-@media (max-width: 480px) {
-  header {
-    padding: 10px 15px;
-  }
-  .hero-text h1 {
-    font-size: 1.4rem;
-  }
-  .hero-text p {
-    font-size: 0.9rem;
-  }
-  .hero-buttons a {
-    font-size: 0.9rem;
-    padding: 8px 0;
-  }
-  footer {
-    padding: 15px 10px;
-    font-size: 0.85rem;
-  }
-}
 
 </style>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVS3PD4RLJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZVS3PD4RLJ');
-</script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3533636004938881"
-     crossorigin="anonymous"></script>
+</style>
 </head>
 <body>
 
@@ -449,8 +357,7 @@
   <div class="container">
     <nav>
       <div class="logo">
-        <img src="img/Design sem nome (1).png" alt="Logo Trevisan Farming" class="logo-img" />
-        Trevisan Farming
+        <img src="img/Design sem nome (1).png" alt="Logo Trevisan Farming" class="logo-img" />Trevisan Farming
       </div>
 
       <div class="menu">
@@ -460,23 +367,17 @@
       </div>
 
       <div class="social-icons">
+        <!-- Instagram -->
         <a href="https://www.instagram.com/seuusuario" target="_blank" aria-label="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2ea44f" width="24" height="24">
-            <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.5.2.8.5 1.2.9.4.4.7.7.9 1.2.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.5-.5.8-.9 1.2-.4.4-.7.7-1.2.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.5-.2-.8-.5-1.2-.9-.4-.4-.7-.7-.9-1.2-.2-.4-.4-1-.5-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.5.5-.8.9-1.2.4-.4.7-.7 1.2-.9.4-.2 1-.4 2.2-.5C8.4 2.2 8.8 2.2 12 2.2m0-2.2c-3.3 0-3.7 0-5 .1-1.3.1-2.2.3-3 .6a5.7 5.7 0 0 0-2 1.3 5.7 5.7 0 0 0-1.3 2c-.3.8-.5 1.7-.6 3C.1 8.3 0 8.7 0 12c0 3.3 0 3.7.1 5 .1 1.3.3 2.2.6 3 .3.8.7 1.5 1.3 2 .6.6 1.2 1 2 1.3.8.3 1.7.5 3 .6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 3-.6a5.7 5.7 0 0 0 2-1.3 5.7 5.7 0 0 0 1.3-2c.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-3a5.7 5.7 0 0 0-1.3-2 5.7 5.7 0 0 0-2-1.3c-.8-.3-1.7-.5-3-.6C15.7.1 15.3 0 12 0z"/>
-            <circle cx="12" cy="12" r="3.2"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2ea44f" width="24" height="24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.5.2.8.5 1.2.9.4.4.7.7.9 1.2.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.5-.5.8-.9 1.2-.4.4-.7.7-1.2.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.5-.2-.8-.5-1.2-.9-.4-.4-.7-.7-.9-1.2-.2-.4-.4-1-.5-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.5.5-.8.9-1.2.4-.4.7-.7 1.2-.9.4-.2 1-.4 2.2-.5C8.4 2.2 8.8 2.2 12 2.2m0-2.2c-3.3 0-3.7 0-5 .1-1.3.1-2.2.3-3 .6a5.7 5.7 0 0 0-2 1.3 5.7 5.7 0 0 0-1.3 2c-.3.8-.5 1.7-.6 3C.1 8.3 0 8.7 0 12c0 3.3 0 3.7.1 5 .1 1.3.3 2.2.6 3 .3.8.7 1.5 1.3 2 .6.6 1.2 1 2 1.3.8.3 1.7.5 3 .6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 3-.6a5.7 5.7 0 0 0 2-1.3 5.7 5.7 0 0 0 1.3-2c.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.3-2a5.7 5.7 0 0 0-2-1.3c-.8-.3-1.7-.5-3-.6C15.7 0 15.3 0 12 0z"/><path d="M12 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/><circle cx="18.4" cy="5.6" r="1.4"/></svg>
         </a>
-
+        <!-- Facebook -->
         <a href="https://www.facebook.com/seuusuario" target="_blank" aria-label="Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2ea44f" width="24" height="24">
-            <path d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.325 24h11.495v-9.294H9.691V11.41h3.129V8.797c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.764v2.313h3.587l-.467 3.296h-3.12V24h6.116c.73 0 1.324-.593 1.324-1.326V1.326C24 .593 23.407 0 22.675 0z"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2ea44f" width="24" height="24"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.325 24H12V14.708h-3v-3.625h3V8.413c0-3 1.793-4.635 4.523-4.635 1.285 0 2.385.095 2.704.138v3.137h-1.858c-1.458 0-1.74.694-1.74 1.709v2.242h3.479l-.453 3.625h-3.026V24h5.926C23.407 24 24 23.407 24 22.674V1.326C24 .593 23.407 0 22.675 0z"/></svg>
         </a>
-
+        <!-- TikTok -->
         <a href="https://www.tiktok.com/@seuusuario" target="_blank" aria-label="TikTok">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
-  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
-</svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2ea44f" width="24" height="24"><path d="M12 0a12 12 0 1 0 12 12h-3.3a8.7 8.7 0 1 1-8.7-8.7V0z"/></svg>
         </a>
       </div>
     </nav>
@@ -485,27 +386,28 @@
 
 <main class="container">
 
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-text">
-     <h1>Conheça a Trevisan Farming — Estilo agro em camisas, canecas e chinelos</h1>
-<p>Explore nossa loja e descubra produtos personalizados com a cara do campo. Camisas, canecas e chinelos para quem vive a vida no agro!</p>
+      <h1>Conheça a Trevisan Farming — Estilo agro em camisas, canecas e chinelos</h1>
+      <p>Explore nossa loja e descubra produtos personalizados com a cara do campo. Camisas, canecas e chinelos para quem vive a vida no agro!</p>
       <div class="hero-buttons">
         <a href="https://hotprinti.com.br/trfarming/" class="btn-primary">Ver Produtos</a>
         <a href="#depoimentos" class="btn-secondary">O que dizem nossos clientes</a>
       </div>
     </div>
-   <!-- Substitua a div .hero-image no seu HTML por essa: -->
-<div class="hero-image">
-  <div class="carousel">
-    <img src="img/15d2e4b6-cedb-407b-b8d5-f5682a1b5469.png" alt="Imagem 1" class="carousel-image active" />
-    <img src="img/b3deeb95-a3ee-41fd-b584-954a65dc0315.png" alt="Imagem 2" class="carousel-image" />
-    <img src="img/e73dde7d-040c-4ac0-ba2f-d97eb3087eb9.png" alt="Imagem 3" class="carousel-image" />
-    <button class="carousel-btn prev" aria-label="Imagem anterior">&#10094;</button>
-    <button class="carousel-btn next" aria-label="Próxima imagem">&#10095;</button>
-  </div>
-</div>
+    <div class="hero-image">
+      <div class="carousel">
+        <img src="img/15d2e4b6-cedb-407b-b8d5-f5682a1b5469.png" alt="Imagem 1" class="carousel-image active" />
+        <img src="img/b3deeb95-a3ee-41fd-b584-954a65dc0315.png" alt="Imagem 2" class="carousel-image" />
+        <img src="img/e73dde7d-040c-4ac0-ba2f-d97eb3087eb9.png" alt="Imagem 3" class="carousel-image" />
+        <button class="carousel-btn prev" aria-label="Imagem anterior">&#10094;</button>
+        <button class="carousel-btn next" aria-label="Próxima imagem">&#10095;</button>
+      </div>
+    </div>
   </section>
 
+  <!-- Produtos -->
   <section id="produtos" class="products-section">
     <h2 class="section-title">Produtos em destaque</h2>
     <div class="products-grid">
@@ -516,37 +418,32 @@
           <p>Algodão premium, impressão de alta qualidade, diversas cores e tamanhos.</p>
           <div class="product-price">A partir de R$ 69,90</div>
         </div>
-       <button class="btn-add" onclick="window.location.href='https://hotprinti.com.br/trfarming/'">
-  Acessar Loja
-</button>
+        <button class="btn-add" onclick="window.location.href='https://hotprinti.com.br/trfarming/'">Acessar Loja</button>
       </article>
 
       <article class="product-card">
         <img src="img/e73dde7d-040c-4ac0-ba2f-d97eb3087eb9.png" alt="Caneca Personalizada">
         <div class="product-info">
-         <h3>Canecas Térmicas</h3>
-<p>Canecas térmicas resistentes, perfeitas para o dia a dia no campo com arte personalizada do universo agro.</p>
+          <h3>Canecas Térmicas</h3>
+          <p>Canecas térmicas resistentes, perfeitas para o dia a dia no campo com arte personalizada do universo agro.</p>
           <div class="product-price">A partir de R$ 49,90</div>
         </div>
-      <button class="btn-add" onclick="window.location.href='https://hotprinti.com.br/trfarming/'">
-  Acessar Loja
-</button>
+        <button class="btn-add" onclick="window.location.href='https://hotprinti.com.br/trfarming/'">Acessar Loja</button>
       </article>
 
       <article class="product-card">
         <img src="img/2133856f-846a-4e2d-8f36-427b8bab3484.png" alt="Moletom Personalizado">
         <div class="product-info">
-          <h3>Moletom </h3>
+          <h3>Moletom</h3>
           <p>Moletom com estampas exclusivas ou bordados, perfeito para eventos e ocasiões especiais.</p>
           <div class="product-price">A partir de R$ 104,90</div>
         </div>
-   <button class="btn-add" onclick="window.location.href='https://hotprinti.com.br/trfarming/l'">
-  Acessar Loja
-</button>
+        <button class="btn-add" onclick="window.location.href='https://hotprinti.com.br/trfarming/'">Acessar Loja</button>
       </article>
     </div>
   </section>
 
+  <!-- Depoimentos -->
   <section id="depoimentos" class="testimonials-section">
     <h2>O que nossos clientes dizem</h2>
     <div class="testimonials-grid">
@@ -566,57 +463,61 @@
   </section>
 
 </main>
+<!-- Floating Buttons -->
+<div id="whatsapp-btn" class="btn-floating" onclick="window.open('https://wa.me/seunumerodetelefone','_blank')">💬</div>
+<div id="top-btn" class="btn-floating" onclick="window.scrollTo({top:0, behavior:'smooth'})">⬆️</div>
 
+<!-- Coupon Popup -->
+<div id="coupon-popup">
+  Ganhe 10% de desconto! Use o cupom <strong>FARMING10</strong>
+  <button onclick="closeCoupon()">Fechar</button>
+</div>
+
+<!-- Footer -->
 <footer>
-  <div class="container">
-    <p>© 2025 Trevisan Farming - Todos os direitos reservados</p>
-    <p>
-      <a href="privacidade.html">Política de Privacidade</a> | 
-      <a href="termos.html">Termos de Uso</a> | 
-      <a href="contato.html">Contato</a>
-    </p>
-  </div>
+  <p>© 2025 Trevisan Farming. Todos os direitos reservados.</p>
+  <p>
+    <a href="https://www.instagram.com/seuusuario" target="_blank">Instagram</a> |
+    <a href="https://www.facebook.com/seuusuario" target="_blank">Facebook</a> |
+    <a href="https://www.tiktok.com/@seuusuario" target="_blank">TikTok</a>
+  </p>
 </footer>
 
-</body>
 <script>
+  // Hero Carousel
   const slides = document.querySelectorAll('.carousel-image');
   const prevBtn = document.querySelector('.carousel-btn.prev');
   const nextBtn = document.querySelector('.carousel-btn.next');
   let currentIndex = 0;
   let slideInterval = setInterval(nextSlide, 4000);
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-    currentIndex = index;
+  function showSlide(index){
+    slides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
+    currentIndex=index;
   }
+  function nextSlide(){showSlide((currentIndex+1)%slides.length);}
+  function prevSlide(){showSlide((currentIndex-1+slides.length)%slides.length);}
+  nextBtn.addEventListener('click',()=>{nextSlide(); resetInterval();});
+  prevBtn.addEventListener('click',()=>{prevSlide(); resetInterval();});
+  function resetInterval(){clearInterval(slideInterval); slideInterval=setInterval(nextSlide,4000);}
 
-  function nextSlide() {
-    let nextIndex = (currentIndex + 1) % slides.length;
-    showSlide(nextIndex);
-  }
+  // Scroll floating button
+  const topBtn=document.getElementById('top-btn');
+  window.addEventListener('scroll',()=>{topBtn.style.display=window.scrollY>300?'flex':'none';});
 
-  function prevSlide() {
-    let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(prevIndex);
-  }
+  // Coupon popup
+  const coupon=document.getElementById('coupon-popup');
+  window.addEventListener('load',()=>{setTimeout(()=>{coupon.style.display='block'},2000);});
+  function closeCoupon(){coupon.style.display='none';}
 
-  nextBtn.addEventListener('click', () => {
-    nextSlide();
-    resetInterval();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    prevSlide();
-    resetInterval();
-  });
-
-  function resetInterval() {
-    clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 4000);
-  }
+  // Fade-in animation for products & testimonials
+  const faders=document.querySelectorAll('.product-card, .testimonial-card');
+  const appearOptions={threshold:0.2, rootMargin:"0px 0px -50px 0px"};
+  const appearOnScroll=new IntersectionObserver(function(entries,observer){
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible'); observer.unobserve(entry.target);}});
+  },appearOptions);
+  faders.forEach(fader=>appearOnScroll.observe(fader));
 </script>
 
+</body>
 </html>
